@@ -1,5 +1,5 @@
 ---
-revision  : 2020-08-21 (Fri) 12:18:29
+revision  : 2020-08-21 (Fri) 12:23:11
 title     : Hawky README
 ---
 
@@ -37,4 +37,4 @@ Why Hawky? Historically ISLE's knowledge vault was an Apple HyperCard database n
 several lives before being converted to a Dokuwiki site (circa 2007). This could be its next housing :smile:
 
   [yellow]: https://github.com/datenstrom/yellow
-  [extenssions]: https://github.com/datenstrom/yellow-extensions
+  [extensions]: https://github.com/datenstrom/yellow-extensions
