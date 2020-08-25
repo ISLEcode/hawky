@@ -1,0 +1,477 @@
+revision  : 2020-08-25 (Tue) 02:32:50
+title     : Mappings from original Yellow source code
+not-used  :
+  - bundle.php: https://github.com/matthiasmullie/minify/issues
+  - bundle.php: classes `CSS`, `JS`, `MinifyCss`, `MinifyJavascript`, and `MinifyBasic`
+
+events    :
+  - { name: onlayout,                                       from: onParsePageLayout                         }
+  - { name: onclicall,                                      from: on Command                                }
+
+# INFO: to sort on from column in Vim → 't,.s!sort -t: -k3
+registry  :
+  - { name: assets-homedir,                                 from: coreMediaDirectory                        }
+  - { name: assets-webpath,                                 from: coreMediaLocation                         }
+  - { name: config-homedir,                                 from: coreSettingDirectory                      }
+  - { name: config-mainfile,                                from: coreConfigFile                            }
+  - { name: config-rootdir,                                 from: coreConfigDirectory                       }
+  - { name: config-userdb,                                  from: coreUserFile                              }
+  - { name: downloads-extension,                            from: coreDownloadExtension                     }
+  - { name: downloads-homedir,                              from: coreDownloadDirectory                     }
+  - { name: downloads-webpath,                              from: coreDownloadLocation                      }
+  - { name: fdate,                                          from: coreDateFormatMedium                      }
+  - { name: fdatelong,                                      from: coreDateFormatLong                        }
+  - { name: fdateshort,                                     from: coreDateFormatShort                       }
+  - { name: images-homedir,                                 from: coreImageDirectory                        }
+  - { name: images-webpath,                                 from: coreImageLocation                         }
+  - { name: layouts-extension,                              from: (none)                                    }
+  - { name: layouts-homedir,                                from: coreLayoutDirectory                       }
+  - { name: nlsfile,                                        from: coreLanguageFile                          }
+  - { name: pages-defaultdir,                               from: coreContentRootDirectory                  }
+  - { name: pages-extension,                                from: coreContentExtension                      }
+  - { name: pages-homedir,                                  from: coreContentHomeDirectory                  }
+  - { name: pages-markup,                                   from: (none)                                    }
+  - { name: pages-pagination,                               from: contentPagination                         }
+  - { name: pages-rootdir,                                  from: coreContentDirectory                      }
+  - { name: pages-sharedir,                                 from: coreContentSharedDirectory                }
+  - { name: plugins-homedir,                                from: coreExtensionDirectory                    }
+  - { name: plugins-webpath,                                from: coreExtensionLocation                     }
+  - { name: site-address,                                   from: coreServerBase                            }
+  - { name: site-author,                                    from: ?                                         }
+  - { name: site-cachedir,                                  from: coreCacheDirectory                        }
+  - { name: site-domain,                                    from: coreServerAddress                         }
+  - { name: site-email,                                     from: ?                                         }
+  - { name: site-errorfile,                                 from: coreContentErrorFile                      }
+  - { name: site-indexfile,                                 from: coreContentDefaultFile                    }
+  - { name: site-libdir,                                    from: coreSystemDirectory                       }
+  - { name: site-logfile,                                   from: coreLogFile                               }
+  - { name: site-multilingual,                              from: coreMultiLanguageMode                     }
+  - { name: site-protocol,                                  from: coreServerScheme                          }
+  - { name: site-timezone,                                  from: coreServerTimezone                        }
+  - { name: site-trash,                                     from: coreTrashDirectory                        }
+  - { name: site-url,                                       from: coreServerUrl                             }
+  - { name: static-homedir,                                 from: coreStaticDirectory                       }
+  - { name: static-webpath,                                 from: coreStaticUrl                             }
+  - { name: themes-default,                                 from: ?                                         }
+  - { name: themes-homedir,                                 from: coreThemeDirectory                        }
+  - { name: themes-webpath,                                 from: coreThemeLocation                         }
+  - { name: user-idfield,                                   from: (none)                                    }
+
+mappings  :
+  - { name: Kernel->pages,                                  from: Content->$pages                           }
+  - { name: '',                                             from: Content->clean                            }
+  - { name: Kernel->findcontent,                            from: Content->find                             }
+  - { name: '',                                             from: Content->getChildren                      }
+  - { name: '',                                             from: Content->getChildrenRecursive             }
+  - { name: '',                                             from: Content->getHomeLocation                  }
+  - { name: '',                                             from: Content->getLanguages                     }
+  - { name: '',                                             from: Content->getParentLocation                }
+  - { name: '',                                             from: Content->getParentTopLocation             }
+  - { name: '',                                             from: Content->getRootLocation                  }
+  - { name: '',                                             from: Content->getShared                        }
+  - { name: Kernel->indexcontent,                           from: Content->index                            }
+  - { name: '',                                             from: Content->multi                            }
+  - { name: '',                                             from: Content->path                             }
+  - { name: Kernel->fsscan,                                 from: Content->scanLocation                     }
+  - { name: '',                                             from: Content->shared                           }
+  - { name: '',                                             from: Content->top                              }
+  - { name: Kernel->climain,                                from: Core->command                             }
+  - { name: Kernel->clihandler,                             from: Core->getCommandHandler                   }
+  - { name: '',                                             from: Core->getCommandHelp                      }
+  - { name: '',                                             from: Core->getCommandInformation               }
+  - { name: '',                                             from: Core->getLayoutArgs                       }
+  - { name: '',                                             from: Core->getLayoutArguments                  }
+  - { name: Kernel->webhandler,                             from: Core->getRequestHandler                   }
+  - { name: '',                                             from: Core->getRequestInformation               }
+  - { name: Kernel->climode,                                from: Core->isCommandLine                       }
+  - { name: '',                                             from: Core->isLoaded                            }
+  - { name: '',                                             from: Core->layout                              }
+  - { name: '',                                             from: Core->load                                }
+  - { name: '',                                             from: Core->log                                 }
+  - { name: '',                                             from: Core->processRequest                      }
+  - { name: '',                                             from: Core->processRequestError                 }
+  - { name: '',                                             from: Core->readPage                            }
+  - { name: Kernel->webmain,                                from: Core->request                             }
+  - { name: '',                                             from: Core->selfcheck                           }
+  - { name: '',                                             from: Core->sendData                            }
+  - { name: '',                                             from: Core->sendFile                            }
+  - { name: '',                                             from: Core->sendPage                            }
+  - { name: '',                                             from: Core->sendStatus                          }
+  - { name: '',                                             from: Core->shutdown                            }
+  - { name: '',                                             from: Core->startup                             }
+  - { name: Kernel->_plugins,                               from: Extension->$data                          }
+  - { name: Kernel->_plugins_ts,                            from: Extension->$modified                      }
+  - { name: Kernel->getplugin,                              from: Extension->get                            }
+  - { name: Kernel->pluginrevision,                         from: Extension->getModified                    }
+  - { name: Kernel->isplugin,                               from: Extension->isExisting                     }
+  - { name: Kernel->loadplugin,                             from: Extension->load                           }
+  - { name: Kernel->registerplugin,                         from: Extension->register                       }
+  - { name: Kernel->_currentlang,                           from: Language->$language                       }
+  - { name: Kernel->_nls_ts,                                from: Language->$modified                       }
+  - { name: Kernel->_nls,                                   from: Language->$settings                       }
+  - { name: Kernel->_nsldefaults,                           from: Language->$settingsDefaults               }
+  - { name: Kernel->getnlsdate,                             from: Language->getDateFormatted                }
+  - { name: Kernel->getnlsrdate,                            from: Language->getDateRelative                 }
+  - { name: Kernel->nlsrevision,                            from: Language->getModified                     }
+  - { name: Kernel->nlssettings,                            from: Language->getSettings                     }
+  - { name: Kernel->getnlskey,                              from: Language->getText                         }
+  - { name: Kernel->getnlskey,                              from: Language->getTextHtml                     }
+  - { name: Kernel->islang,                                 from: Language->isExisting                      }
+  - { name: Kernel->nlstest,                                from: Language->isText                          }
+  - { name: Kernel->loadlangs,                              from: Language->load                            }
+  - { name: Kernel->getnlscdate,                            from: Language->normaliseDate                   }
+  - { name: Kernel->setlang,                                from: Language->set                             }
+  - { name: Kernel->setnlsdefault,                          from: Language->setDefault                      }
+  - { name: Kernel->setnlskey,                              from: Language->setText                         }
+  - { name: Kernel->_clihandler,                            from: Lookup->$commandHandler                   }
+  - { name: '',                                             from: Lookup->$layoutArguments                  }
+  - { name: Kernel->_webhandler,                            from: Lookup->$requestHandler                   }
+  - { name: (merged into FileTrait->fsconfigure),           from: Lookup->detectFileSystem                  }
+  - { name: '',                                             from: Lookup->findChildrenFromLocation          }
+  - { name: '',                                             from: Lookup->findFileDefault                   }
+  - { name: '',                                             from: Lookup->findFileDirectory                 }
+  - { name: '',                                             from: Lookup->findFileFromLocation              }
+  - { name: Kernel->zipdirof,                               from: Lookup->findFileFromMedia                 }
+  - { name: '',                                             from: Lookup->findFileFromSystem                }
+  - { name: FileTrait->fsconfigure,                         from: Lookup->findFileSystemInformation         }
+  - { name: '',                                             from: Lookup->findLanguageFromFile              }
+  - { name: '',                                             from: Lookup->findLocationFromFile              }
+  - { name: FileTrait->fspagepaths,                         from: Lookup->findRootLocations                 }
+  - { name: '',                                             from: Lookup->getDirectoryLocation              }
+  - { name: '',                                             from: Lookup->getRedirectLocation               }
+  - { name: Kernel->urlinfo,                                from: Lookup->getUrlInformation                 }
+  - { name: '',                                             from: Lookup->isActiveLocation                  }
+  - { name: '',                                             from: Lookup->isAvailableLocation               }
+  - { name: FileTrait->inpagesrepo,                         from: Lookup->isContentFile                     }
+  - { name: '',                                             from: Lookup->isFileLocation                    }
+  - { name: FileTrait->inassetsrepo,                        from: Lookup->isMediaFile                       }
+  - { name: '',                                             from: Lookup->isNestedLocation                  }
+  - { name: '',                                             from: Lookup->isRedirectLocation                }
+  - { name: '',                                             from: Lookup->isRequestCleanUrl                 }
+  - { name: '',                                             from: Lookup->isRootLocation                    }
+  - { name: FileTrait->inlibrepo,                           from: Lookup->isSystemFile                      }
+  - { name: FileTrait->inhawkyrepo,                         from: Lookup->isValidFile                       }
+  - { name: '',                                             from: Lookup->normaliseLocation                 }
+  - { name: '',                                             from: Lookup->normaliseName                     }
+  - { name: '',                                             from: Lookup->normalisePrefix                   }
+  - { name: cfilename,                                      from: Lookup->normaliseToken                    }
+  - { name: '',                                             from: Lookup->normaliseUpperLower               }
+  - { name: Kernel->absurl,                                 from: Lookup->normaliseUrl                      }
+  - { name: Kernel->_assets,                                from: Media->$files                             }
+  - { name: Kernal->zscan,                                  from: Media->scanLocation                       }
+  - { name: Kernal->zfind,                                  from: Media->find                               }
+  - { name: Kernal->zindex,                                 from: Media->index                              }
+  - { name: Kernal->zclean,                                 from: Media->clean                              }
+  - { name: Kernel->zchildren,                              from: Media->getChildren                        }
+  - { name: Kernel->zsiblings,                              from: Media->getChildrenRecursive               }
+  - { name: Kernel->zhomedir,                               from: Media->getHomeLocation                    }
+  - { name: Kernel->zparentdir,                             from: Media->getParentLocation                  }
+  - { name: Kernel->ztopdir,                                from: Media->getParentTopLocation               }
+  - { name: Kernel->cpactive,                               from: Page->$active                             }
+  - { name: Kernel->cpaddress,                              from: Page->$address                            }
+  - { name: Kernel->cpavailable,                            from: Page->$available                          }
+  - { name: Kernel->cpbaseurl,                              from: Page->$base                               }
+  - { name: Kernel->cpcacheable,                            from: Page->$cacheable                          }
+  - { name: Kernel->cpfsname,                               from: Page->$fileName                           }
+  - { name: Kernel->_header,                                from: Page->$headerData                         }
+  - { name: Kernel->cprevision,                             from: Page->$lastModified                       }
+  - { name: Kernel->cpurl,                                  from: Page->$location                           }
+  - { name: Kernel->_metadata,                              from: Page->$metaData                           }
+  - { name: Kernel->cpmetaoffset,                           from: Page->$metaDataOffsetBytes                }
+  - { name: Kernel->_output,                                from: Page->$outputData                         }
+  - { name: Kernel->cppages,                                from: Page->$pageCollections                    }
+  - { name: Kernel->cpparser,                               from: Page->$parser                             }
+  - { name: Kernel->cpparserdata,                           from: Page->$parserData                         }
+  - { name: Kernel->cprawdata,                              from: Page->$rawData                            }
+  - { name: Kernel->cpproto,                                from: Page->$scheme                             }
+  - { name: Kernel->cpshared,                               from: Page->$sharedPages                        }
+  - { name: Kernel->cpstatus,                               from: Page->$statusCode                         }
+  - { name: Kernel->cpvisible,                              from: Page->$visible                            }
+  - { name: Kernel->cleanpage,                              from: Page->clean                               }
+  - { name: Kernel->pageerror,                              from: Page->error                               }
+  - { name: Kernel->cpget,                                  from: Page->get                                 }
+  - { name: Kernel->getpagebaseurl,                         from: Page->getBase                             }
+  - { name: (deprecated),                                   from: Page->getChildren                         }
+  - { name: (deprecated),                                   from: Page->getChildrenRecursive                }
+  - { name: Kernel->getpagecontent,                         from: Page->getContent                          }
+  - { name: Kernel->getpagedate,                            from: Page->getDate                             }
+  - { name: Kernel->getpagedate,                            from: Page->getDateFormatted                    }
+  - { name: Kernel->getpagedate,                            from: Page->getDateFormattedHtml                }
+  - { name: Kernel->getpagedate,                            from: Page->getDateHtml                         }
+  - { name: Kernel->getpagerdate,                           from: Page->getDateRelative                     }
+  - { name: Kernel->getpagerdate,                           from: Page->getDateRelativeHtml                 }
+  - { name: Kernel->getpageextra,                           from: Page->getExtra                            }
+  - { name: Kernel->getpageheader,                          from: Page->getHeader                           }
+  - { name: Kernel->cpget,                                  from: Page->getHtml                             }
+  - { name: Kernel->getpagerevision,                        from: Page->getLastModified                     }
+  - { name: Kernel->getpageurl,                             from: Page->getLocation                         }
+  - { name: Kerenl->getpagemodified,                        from: Page->getModified                         }
+  - { name: '',                                             from: Page->getPage                             }
+  - { name: '',                                             from: Page->getPages                            }
+  - { name: Kernel->getpageparent,                          from: Page->getParent                           }
+  - { name: Kernel->getpagetopparent,                       from: Page->getParentTop                        }
+  - { name: Kernel->getpagerequest,                         from: Page->getRequest                          }
+  - { name: Kernel->getpagerequest,                         from: Page->getRequestHtml                      }
+  - { name: Kernel->getpagesiblings,                        from: Page->getSiblings                         }
+  - { name: Kernel->getpagestatus,                          from: Page->getStatusCode                       }
+  - { name: Kernel->getpagefullurl,                         from: Page->getUrl                              }
+  - { name: Kernel->ploadlayout,                            from: Page->includeLayout                       }
+  - { name: Kernel->ispageactive,                           from: Page->isActive                            }
+  - { name: Kernel->ispageavailable,                        from: Page->isAvailable                         }
+  - { name: Kernel->ispagecacheable,                        from: Page->isCacheable                         }
+  - { name: Kernel->ispageerror,                            from: Page->isError                             }
+  - { name: Kernel->havepage,                               from: Page->isExisting                          }
+  - { name: Kernel->ispageheader,                           from: Page->isHeader                            }
+  - { name: Kernel->ispage,                                 from: Page->isPage                              }
+  - { name: Kernel->ispagerequest,                          from: Page->isRequest                           }
+  - { name: Kernel->ispagevisible,                          from: Page->isVisible                           }
+  - { name: Kernel->parsepagecontent,                       from: Page->parseContent                        }
+  - { name: Kernel->parsepagecontentshortcut,               from: Page->parseContentShortcut                }
+  - { name: Kernel->parsepagedata,                          from: Page->parseData                           }
+  - { name: Kernel->parsepagedataupdate,                    from: Page->parseDataUpdate                     }
+  - { name: Kernel->parsepagemeta,                          from: Page->parseMeta                           }
+  - { name: Kernel->parsepagemetaraw,                       from: Page->parseMetaRaw                        }
+  - { name: Kernel->parsepage,                              from: Page->parsePage                           }
+  - { name: Kernel->parsepagelayout,                        from: Page->parsePageLayout                     }
+  - { name: Kernel->cpset,                                  from: Page->set                                 }
+  - { name: Kernel->setpageheader,                          from: Page->setHeader                           }
+  - { name: Kernel->setpagerevision,                        from: Page->setLastModified                     }
+  - { name: Kernel->poverwrite,                             from: Page->setOutput                           }
+  - { name: '',                                             from: Page->setPage                             }
+  - { name: '',                                             from: Page->setPages                            }
+  - { name: Kernel->setpagerequest,                         from: Page->setRequest                          }
+  - { name: Kernel->setpagerequestinfo,                     from: Page->setRequestInformation               }
+  - { name: Kernel->_config_ts,                             from: System->$modified                         }
+  - { name: Kernel->_config,                                from: System->$settings                         }
+  - { name: Kernel->_defaults,                              from: System->$settingsDefaults                 }
+  - { name: Kernel->rcget,                                  from: System->get                               }
+  - { name: Kernel->rcget,                                  from: System->getHtml                           } # w/extra attribute
+  - { name: Kernel->rcrevision,                             from: System->getModified                       }
+  - { name: Kernel->rcsettings,                             from: System->getSettings                       }
+  - { name: Kernel->rcvalues,                               from: System->getValues                         }
+  - { name: Kernel->rctest,                                 from: System->isExisting                        }
+  - { name: Kernel->rcload,                                 from: System->load                              }
+  - { name: Kernel->rcsave,                                 from: System->save                              }
+  - { name: Kernel->rcset,                                  from: System->set                               }
+  - { name: Kernel->rcset,                                  from: System->setDefault                        } # w/extra attribute
+  - { name: Kernel->fsrlist,                                from: Toolbox->                                 }
+  - { name: fsappend,                                       from: Toolbox->appendFile                       }
+  - { name: fscopy,                                         from: Toolbox->copyFile                         }
+  - { name: fswrite,                                        from: Toolbox->createFile                       }
+  - { name: Kernel->yamlset,                                from: Toolbox->setTextSettings                  }
+  - { name: Kernel->yamlget,                                from: Toolbox->getTextSettings                  }
+  - { name: Kernel->yamlunset,                              from: Toolbox->unsetTextSettings                }
+  - { name: Kernel->mkhash,                                 from: Toolbox->createHash                       }
+  - { name: Kernel->mksalt,                                 from: Toolbox->createSalt                       }
+  - { name: '',                                             from: Toolbox->createTextDescription            }
+  - { name: '',                                             from: Toolbox->createTextTitle                  }
+  - { name: fsrmdir,                                        from: Toolbox->deleteDirectory                  }
+  - { name: fsunlink,                                       from: Toolbox->deleteFile                       }
+  - { name: Kernel->ualang,                                 from: Toolbox->detectBrowserLanguage            }
+  - { name: Kernel->imginfo,                                from: Toolbox->detectImageInformation           }
+  - { name: Kernel->w3software,                             from: Toolbox->detectServerInformation          }
+  - { name: Kernel->w3requesturi,                           from: Toolbox->detectServerLocation             }
+  - { name: timezone,                                       from: Toolbox->detectServerTimezone             }
+  - { name: Kernel->w3requestor,                            from: Toolbox->detectServerUrl                  }
+  - { name: w3cookie,                                       from: Toolbox->getCookie                        }
+  - { name: Kernel->fslist,                                 from: Toolbox->getDirectoryEntries              }
+  - { name: fsgroup,                                        from: Toolbox->getFileGroup                     }
+  - { name: fsmtime,                                        from: Toolbox->getFileModified                  }
+  - { name: fsextension,                                    from: Toolbox->getFileType                      }
+  - { name: strw3time,                                      from: Toolbox->getHttpDateFormatted             }
+  - { name: Kernel->webstatus,                              from: Toolbox->getHttpStatusFormatted           }
+  - { name: '',                                             from: Toolbox->getLocationArgs                  }
+  - { name: '',                                             from: Toolbox->getLocationArgsCleanUrl          }
+  - { name: '',                                             from: Toolbox->getLocationArgsNew               }
+  - { name: '',                                             from: Toolbox->getLocationArgsSeparator         }
+  - { name: w3getargs,                                      from: Toolbox->getLocationArguments             }
+  - { name: Kernel->w3getfargs,                             from: Toolbox->getLocationArgumentsCleanUrl     }
+  - { name: Kernel->w3getargs,                              from: Toolbox->getLocationArgumentsNew          }
+  - { name: w3argsep,                                       from: Toolbox->getLocationArgumentsSeparator    }
+  - { name: '',                                             from: Toolbox->getMetaData                      }
+  - { name: Kernel->mime,                                   from: Toolbox->getMimeContentType               }
+  - { name: Kernel->tobytes,                                from: Toolbox->getNumberBytes                   }
+  - { name: w3httpget,                                      from: Toolbox->getServer                        }
+  - { name: '',                                             from: Toolbox->getTextArgs                      }
+  - { name: '',                                             from: Toolbox->getTextArguments                 }
+  - { name: '',                                             from: Toolbox->getTextAttributes                }
+  - { name: '',                                             from: Toolbox->getTextLines                     }
+  - { name: '',                                             from: Toolbox->getTextList                      }
+  - { name: '',                                             from: Toolbox->getTextSettings                  }
+  - { name: '',                                             from: Toolbox->getTextString                    }
+  - { name: '',                                             from: Toolbox->getTextTruncated                 }
+  - { name: '',                                             from: Toolbox->getTextWords                     }
+  - { name: '',                                             from: Toolbox->isLocationArgs                   }
+  - { name: '',                                             from: Toolbox->isLocationArgsPagination         }
+  - { name: '',                                             from: Toolbox->isLocationArguments              }
+  - { name: '',                                             from: Toolbox->isLocationArgumentsPagination    }
+  - { name: '',                                             from: Toolbox->isNotModified                    }
+  - { name: fstouch,                                        from: Toolbox->modifyFile                       }
+  - { name: '',                                             from: Toolbox->normaliseArgs                    }
+  - { name: w3urlencode,                                    from: Toolbox->normaliseArguments               }
+  - { name: '',                                             from: Toolbox->normaliseData                    }
+  - { name: Kernel->fileformat,                             from: Toolbox->normaliseLines                   }
+  - { name: cpath,                                          from: Toolbox->normaliseTokens                  }
+  - { name: tounicode,                                      from: Toolbox->normaliseUnicode                 }
+  - { name: fsread,                                         from: Toolbox->readFile                         }
+  - { name: fsmvdir,                                        from: Toolbox->renameDirectory                  }
+  - { name: fsrename,                                       from: Toolbox->renameFile                       }
+  - { name: '',                                             from: Toolbox->setMetaData                      }
+  - { name: Kernel->timer,                                  from: Toolbox->timerStart                       }
+  - { name: Kernel->timer,                                  from: Toolbox->timerStop                        }
+  - { name: Kernel->ckhash,                                 from: Toolbox->verifyHash                       }
+  - { name: '',                                             from: Toolbox->verifyToken                      }
+  - { name: (use Kernel->ugetkey),                          from: User->getUserHtml                         }
+  - { name: Kernel->_currentuser,                           from: User->$email;                             }
+  - { name: Kernel->_users,                                 from: User->$settings                           }
+  - { name: Kernel->_users_ts,                              from: User->$modified                           }
+  - { name: Kernel->uappend,                                from: User->save                                }
+  - { name: Kernel->ucurrent,                               from: User->set                                 }
+  - { name: Kernel->udbload,                                from: User->load                                }
+  - { name: Kernel->udbpath,                                from: (none)                                    }
+  - { name: Kernel->udbstamp,                               from: User->getModified                         }
+  - { name: Kernel->udelete,                                from: User->remove                              }
+  - { name: Kernel->uexists,                                from: User->isUser                              }
+  - { name: Kernel->ugetkey,                                from: User->getUser                             }
+  - { name: Kernel->uhaskey,                                from: User->isExisting                          }
+  - { name: Kernel->urecord,                                from: User->getSettings                         }
+  - { name: Kernel->usetkey,                                from: User->setUser                             }
+  - { name: is_empty,                                       from: strempty                                  }
+  - { name: strlen,                                         from: strlenb                                   }
+  - { name: mb_strlen,                                      from: strlenu                                   }
+  - { name: strpos,                                         from: strposb                                   }
+  - { name: mb_strpos,                                      from: strposu                                   }
+  - { name: str_replace,                                    from: strreplaceu                               }
+  - { name: strrpos,                                        from: strrposb                                  }
+  - { name: mb_strrpos,                                     from: strrposu                                  }
+  - { name: mb_strtolower,                                  from: strtoloweru                               }
+  - { name: mb_strtoupper,                                  from: strtoupperu                               }
+  - { name: substr,                                         from: substrb                                   }
+  - { name: mb_substr,                                      from: substru                                   }
+
+deprecated:
+
+  - name  : Content->shared
+    args  : "$name"
+    body  : "return null;"
+
+  - name  : Plugins->load
+    args  : "$path"
+    body  : "$this->hawky->extension->load"
+
+  - name  : Plugins->register
+    args  : "$name, $class"
+    body  : "$this->hawky->extension->register"
+
+  - name  : Plugins->get
+    args  : "$name"
+    body  : "return $this->hawky->extension->get"
+
+  - name  : Plugins->getData
+    args  : "$type = ''"
+    body  : "return array"
+
+  - name  : Plugins->getModified
+    args  : "$httpFormat = false"
+    body  : "return $this->hawky->extension->getModified"
+
+  - name  : Plugins->getExtensions
+    args  : "$type = ''"
+    body  : "return array"
+
+  - name  : Plugins->isExisting
+    args  : "$name"
+    body  : "return $this->hawky->extension->isExisting"
+
+  - name  : Text->load
+    args  : "$fileName"
+    body  : "$this->hawky->language->load"
+
+  - name  : Text->setLanguage
+    args  : "$language"
+    body  : "$this->hawky->language->set"
+
+  - name  : Text->setText
+    args  : "$key, $value, $language"
+    body  : "$this->hawky->language->setText"
+
+  - name  : Text->get
+    args  : "$key"
+    body  : "return $this->hawky->language->getText"
+
+  - name  : Text->getHtml
+    args  : "$key"
+    body  : "return $this->hawky->language->getTextHtml"
+
+  - name  : Text->getText
+    args  : "$key, $language"
+    body  : "return $this->hawky->language->getText"
+
+  - name  : Text->getTextHtml
+    args  : "$key, $language"
+    body  : "return $this->hawky->language->getTextHtml"
+
+  - name  : Text->getData
+    args  : "$filterStart = '', $language = ''"
+    body  : "return $this->hawky->language->getSettings"
+
+  - name  : Text->getDateFormatted
+    args  : "$timestamp, $format"
+    body  : "return $this->hawky->language->getDateFormatted"
+
+  - name  : Text->getDateRelative
+    args  : "$timestamp, $format, $daysLimit"
+    body  : "return $this->hawky->language->getDateRelative"
+
+  - name  : Text->getModified
+    args  : "$httpFormat = false"
+    body  : "return $this->hawky->language->getModified"
+
+  - name  : Text->getLanguages
+    args  : ""
+    body  : "return $this->hawky->system->getValues"
+
+  - name  : Text->normaliseDate
+    args  : "$text"
+    body  : "return $this->hawky->language->normaliseDate"
+
+  - name  : Text->isLanguage
+    args  : "$language"
+    body  : "return $this->hawky->language->isExisting"
+
+  - name  : Text->isExisting
+    args  : "$key, $language = ''"
+    body  : "return $this->hawky->language->isText"
+
+  - name  : Toolbox->getLocationArgs
+    args  :
+    body  : "return $this->getLocationArguments();"
+
+  - name  : Toolbox->getLocationArgsNew
+    args  : "$key, $value"
+    body  : "return $this->getLocationArgumentsNew($key, $value);"
+
+  - name  : Toolbox->getLocationArgsCleanUrl
+    args  :
+    body  : "return $this->getLocationArgumentsCleanUrl();"
+
+  - name  : Toolbox->getLocationArgsSeparator
+    args  :
+    body  : "return $this->getLocationArgumentsSeparator();"
+
+  - name  : Toolbox->getTextArgs
+    args  : "$text, $optional = '-', $sizeMin = 9"
+    body  : "return $this->getTextArguments($text, $optional, $sizeMin);"
+
+  - name  : Toolbox->normaliseArgs
+    args  : "$text, $appendSlash = true, $filterStrict = true"
+    body  : "return $this->normaliseArguments($text, $appendSlash, $filterStrict);"
+
+  - name  : Toolbox->isLocationArgs
+    args  : "$location = ''"
+    body  : "return $this->isLocationArguments($location);"
+
+  - name  : Toolbox->isLocationArgsPagination
+    args  : "$location"
+    body  : "return $this->isLocationArgumentsPagination($location);"
+
