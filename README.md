@@ -1,5 +1,5 @@
 ---
-revision  : 2020-08-21 (Fri) 12:23:11
+revision  : 2020-08-24 (Mon) 08:40:15
 title     : Hawky README
 ---
 
@@ -32,6 +32,7 @@ also some possibly diverging thoughts we want to investigate:
   - a more _sophisticated_ administration panel à la Grav CMS
   - use our NodeJS-based toolchain for the build process
   - integrate CommonMark with custom extensions
+  - [Grav-like](https://learn.getgrav.org/16/advanced/debugging) debugging and logging
 
 Why Hawky? Historically ISLE's knowledge vault was an Apple HyperCard database named Hawky (circa 1991). The database lived
 several lives before being converted to a Dokuwiki site (circa 2007). This could be its next housing :smile:
